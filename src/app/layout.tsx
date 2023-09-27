@@ -2,8 +2,8 @@ import "./globals.css";
 import "@radix-ui/themes/styles.css";
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
-import { Theme } from "@radix-ui/themes";
 import { getServerSideSession } from "@/lib/serverUtils";
+import RootStyleRegistry from "@/app/providers";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -21,8 +21,10 @@ export default async function RootLayout({
   return (
     <html lang="en">
       <body className={"dark"}>
-        <Theme>{children}</Theme>
+        <RootStyleRegistry session={session}>{children}</RootStyleRegistry>
       </body>
     </html>
   );
 }
+
+export const dynamic = "force-dynamic";
