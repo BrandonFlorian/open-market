@@ -11,17 +11,15 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Input } from "../ui/input";
-import { Button } from "../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "../ui/use-toast";
 import { ToastAction } from "../ui/toast";
-import { Checkbox } from "../ui/checkbox";
 import { useRouter } from "next/navigation";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { Text } from "@radix-ui/themes";
 import { Label } from "../ui/label";
 import Link from "next/link";
+import { Input, Checkbox, Button } from "@nextui-org/react";
 const formSchema = z.object({
   username: z.string().min(2).max(50),
   email: z.string().email(),
@@ -135,7 +133,7 @@ export const SignUpForm = (props: Props) => {
                   <Checkbox
                     id="terms"
                     checked={field.value}
-                    onCheckedChange={field.onChange}
+                    onChange={field.onChange}
                   />
                   <Label htmlFor="terms">
                     I agree to the terms and conditions

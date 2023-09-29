@@ -4,6 +4,8 @@ import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import { getServerSideSession } from "@/lib/serverUtils";
 import RootStyleRegistry from "@/app/providers";
+import NavigationBar from "@/components/custom/navbar";
+import type { Session } from "@supabase/auth-helpers-nextjs";
 const inter = Inter({ subsets: ["latin"] });
 
 export const metadata: Metadata = {
@@ -16,12 +18,15 @@ export default async function RootLayout({
 }: {
   children: React.ReactNode;
 }) {
-  const session = await getServerSideSession();
+  const session: Session | null = await getServerSideSession();
   console.log("session: ", session);
   return (
     <html lang="en">
       <body className={"dark"}>
-        <RootStyleRegistry session={session}>{children}</RootStyleRegistry>
+        <RootStyleRegistry session={session}>
+          <NavigationBar session={session} />
+          <div className="min-h-screen bg-dark-mode-background">{children}</div>
+        </RootStyleRegistry>
       </body>
     </html>
   );

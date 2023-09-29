@@ -10,15 +10,15 @@ import {
   FormLabel,
   FormMessage,
 } from "../ui/form";
-import { Input } from "../ui/input";
+
 import { Text } from "@radix-ui/themes";
-import { Button } from "../ui/button";
 import { zodResolver } from "@hookform/resolvers/zod";
 import { useToast } from "../ui/use-toast";
 import Link from "next/link";
 import { createClientComponentClient } from "@supabase/auth-helpers-nextjs";
 import { useRouter } from "next/navigation";
 import { HeartFilledIcon } from "@radix-ui/react-icons";
+import { Button, Input } from "@nextui-org/react";
 const formSchema = z.object({
   email: z.string().email(),
   password: z.string().min(8).max(50),

@@ -43,12 +43,8 @@ export const appPaths = {
   products: "/products",
   product: "/product",
   profile: "/profile",
-  cart: "/cart",
   checkout: "/checkout",
   signIn: "/sign-in",
-  order: "/order",
-  faq: "/faq",
-  mint: "/mint",
 };
 
 export const DB_TABLES = {

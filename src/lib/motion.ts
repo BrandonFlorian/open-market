@@ -19,6 +19,15 @@ export const navVariants = {
   },
 };
 
+export const rippleVariant = {
+  whileTap: {
+    scale: 1.1, // or any other effect you want to achieve
+    transition: {
+      duration: 0.4, // adjust duration to your preference
+    },
+  },
+};
+
 export const slideIn = (
   direction: "left" | "right" | "up" | "down",
   type: string,

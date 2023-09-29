@@ -23,7 +23,7 @@ export default async function Products() {
   const products: ProductType[] = await getProducts();
 
   return (
-    <div className="flex flex-col items-center">
+    <div className="flex flex-col items-center ">
       <h1 className={h1Class}>Products</h1>
       <Grid
         columns={{

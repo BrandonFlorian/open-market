@@ -2,7 +2,8 @@
 import React, { useState } from "react";
 import { SignInForm } from "@/components/forms/signInForm";
 import { SignUpForm } from "@/components/forms/signUpForm";
-import { Card } from "../ui/card";
+import { Card } from "@nextui-org/react";
+
 type Props = {};
 type FormType = "signIn" | "signUp";
 export const AuthContainer = (props: Props) => {
