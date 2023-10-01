@@ -50,9 +50,9 @@ export const ProductCard = (props: Props) => {
           <Text className={labelClass}>{product.name}</Text>
         </div>
 
-        <Button radius="full" size="sm" color="success">
-          <Text className={labelClass}>View</Text>
-        </Button>
+        {/* <Button radius="full" size="sm" color="success">
+          View
+        </Button> */}
       </CardFooter>
     </Card>
   );

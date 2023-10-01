@@ -1,5 +1,7 @@
 import { supabase } from "@/services/supabaseClient";
+import { PROFILES_ENDPOINT } from "@/types/constants";
 import { QueryOptionsType } from "@/types/dataTypes";
+import type { profile } from "@prisma/client";
 import {
   Session,
   createServerComponentClient,
@@ -79,4 +81,25 @@ export const formatPaginatedEndpoint = (
   const queryString = paramsString ? `?${paramsString}` : "";
 
   return `${baseUrl}${queryString}&offset=${page}`;
+};
+
+export const getUserProfile = async (
+  username: string | undefined,
+  accessToken: string | undefined
+): Promise<profile | null> => {
+  try {
+    if (!username || !accessToken) return null;
+    const response = await fetch(`${PROFILES_ENDPOINT}?username=${username}`, {
+      cache: "no-cache",
+      headers: {
+        "Content-Type": "application/json",
+        Authorization: `${accessToken}`,
+      },
+    });
+    const data: profile = await response.json();
+    return data;
+  } catch (error) {
+    console.log("error: ", error);
+    return null;
+  }
 };

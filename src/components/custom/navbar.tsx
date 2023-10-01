@@ -76,7 +76,9 @@ export const NavigationBar = (props: Props) => {
                   <p className="font-semibold">Signed in as</p>
                   <p className="font-semibold">{session.user?.email}</p>
                 </DropdownItem>
-                <DropdownItem key="settings">Profile</DropdownItem>
+
+                <DropdownItem key="profile">Profile</DropdownItem>
+
                 <DropdownItem key="team_settings">Team Settings</DropdownItem>
                 <DropdownItem key="analytics">Analytics</DropdownItem>
                 <DropdownItem key="system">System</DropdownItem>
